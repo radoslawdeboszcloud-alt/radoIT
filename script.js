@@ -210,8 +210,17 @@ const dict = {
   }
 };
 
-let currentLang = (localStorage.getItem('radoit_lang') || 'de').toLowerCase();
-if (!['de','pl'].includes(currentLang)) currentLang = 'de';
+let currentLang = (localStorage.getItem('radoit_lang') || '').toLowerCase();
+if (!['de','pl'].includes(currentLang)) {
+  const browserLang = (navigator.language || '').toLowerCase();
+  if (browserLang.startsWith('pl')) {
+    currentLang = 'pl';
+  } else if (browserLang.startsWith('de')) {
+    currentLang = 'de';
+  } else {
+    currentLang = 'de';
+  }
+}
 
 const pill = document.getElementById('langPill');
 const toggleBtn = document.getElementById('langToggle');
