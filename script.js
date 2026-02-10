@@ -236,6 +236,64 @@ toggleBtn?.addEventListener('click', () => {
 
 applyLang(currentLang);
 
+// reveal on scroll
+const revealTargets = document.querySelectorAll('.hero, .section, .footer');
+revealTargets.forEach(el => el.classList.add('reveal'));
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+
+  revealTargets.forEach(el => revealObserver.observe(el));
+} else {
+  revealTargets.forEach(el => el.classList.add('is-visible'));
+}
+
+// impressum modal
+const impressumModal = document.getElementById('impressumModal');
+const openImpressumLinks = document.querySelectorAll('[data-open-impressum]');
+const closeImpressumEls = document.querySelectorAll('[data-close-impressum]');
+
+function openImpressum(){
+  if (!impressumModal) return;
+  impressumModal.classList.add('is-open');
+  impressumModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+}
+
+function closeImpressum(){
+  if (!impressumModal) return;
+  impressumModal.classList.remove('is-open');
+  impressumModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+}
+
+openImpressumLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    openImpressum();
+  });
+});
+
+closeImpressumEls.forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeImpressum();
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && impressumModal?.classList.contains('is-open')) {
+    closeImpressum();
+  }
+});
+
 // mailto form
 const form = document.getElementById('mailtoForm');
 form?.addEventListener('submit', (e) => {
@@ -252,3 +310,4 @@ form?.addEventListener('submit', (e) => {
   const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = url;
 });
+

@@ -16,6 +16,7 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+section{scroll-margin-top:200px}
 body{
   margin:0;
   font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
@@ -149,7 +150,7 @@ a{color:inherit}
 
 .grid{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 .tile{
@@ -233,6 +234,55 @@ hr{border:none; border-top:1px solid var(--line); margin:18px 0}
 .footer a{color: rgba(234,242,255,.85); text-decoration:none}
 .footer a:hover{text-decoration:underline}
 .sep{opacity:.6}
+
+.reveal{
+  opacity:0;
+  transform: translateY(50px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.is-visible{
+  opacity:1;
+  transform: translateY(0);
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:100;
+}
+.modal.is-open{display:block}
+.modal__backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(3,26,51,.75);
+  backdrop-filter: blur(6px);
+}
+.modal__panel{
+  position:relative;
+  width:min(900px, calc(100% - 32px));
+  margin: 6vh auto;
+  background: linear-gradient(180deg, rgba(3,26,51,.98), rgba(3,26,51,.92));
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  max-height: 88vh;
+  overflow:auto;
+}
+.modal__close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  cursor:pointer;
+}
+body.modal-open{overflow:hidden}
 
 @media (max-width: 920px){
   .hero__inner{grid-template-columns: 1fr; }
