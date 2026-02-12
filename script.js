@@ -73,7 +73,16 @@ const dict = {
     "services.soft.6":"Leichte, wartungsarme Lösungen (Java / Spring Boot)",
 
     "about.title":"Über mich",
-    "about.p1":"Ich arbeite hauptberuflich als Softwareentwickler und beschäftige mich seit vielen Jahren mit IT aus Leidenschaft. Ich arbeite unabhängig, erkläre verständlich und empfehle nur Lösungen, die wirklich sinnvoll sind.",
+    "about.p1":"Hallo! Ich bin Radosław – Softwareentwickler und IT-Praktiker mit einem klaren, lösungsorientierten Ansatz.",
+    "about.p2":"Ich arbeite seit Jahren professionell in der IT und unterstütze im Rahmen meiner eigenen Tätigkeit Privatpersonen sowie kleine Unternehmen bei alltäglichen technischen Themen – verständlich, pragmatisch und ohne unnötiges Fachchinesisch.",
+    "about.h1":"Wobei ich helfen kann:",
+    "about.l1":"einfache Websites und digitale Visitenkarten (klar, schnell umgesetzt, ohne Überladung),",
+    "about.l2":"IT-Support und Windows-Systeme (Einrichtung, Ordnung, Sicherheit),",
+    "about.l3":"Einrichtung von NAS-Systemen und Backups für Privat- und kleine Geschäftsumgebungen,",
+    "about.l4":"kleine Tools und Automatisierungen nach Bedarf (z. B. Datenexporte, CSV/Excel/PDF, einfache Backend-Lösungen).",
+    "about.p3":"Ich arbeite lokal in Troisdorf (Deutschland) sowie remote.",
+    "about.p4":"Kommunikation auf Deutsch, Polnisch und Englisch.",
+    "about.p5":"Sie haben eine konkrete Idee oder ein technisches Problem? Schreiben Sie mir – wir finden eine passende Lösung.",
     "about.f1k":"Arbeitsweise",
     "about.f1v":"ruhig, strukturiert, transparent",
     "about.f2k":"Sprachen",
@@ -168,7 +177,16 @@ const dict = {
     "services.soft.6":"Nowoczesne, lekkie rozwiązania (Java / Spring Boot)",
 
     "about.title":"O mnie",
-    "about.p1":"Jestem programistą i pasjonatem IT. Pomagam spokojnie i konkretnie – tłumaczę techniczne tematy prostym językiem i proponuję tylko to, co realnie ma sens.",
+    "about.p1":"Cześć! Jestem Radosław — programista i praktyk IT, który lubi rozwiązywać realne problemy w prosty i zrozumiały sposób.",
+    "about.p2":"Zawodowo pracuję w IT od lat, a w ramach własnej działalności wspieram osoby prywatne oraz małe firmy w codziennych sprawach związanych z technologią — bez zbędnego żargonu i korporacyjnego podejścia.",
+    "about.h1":"W czym mogę pomóc:",
+    "about.l1":"proste strony wizytówki i portfolio (szybko, przejrzyście, bez przeładowania),",
+    "about.l2":"wsparcie komputerowe i systemy Windows (konfiguracja, porządkowanie, bezpieczeństwo),",
+    "about.l3":"konfiguracja NAS i backupów dla domu oraz małych firm,",
+    "about.l4":"drobne narzędzia i automatyzacje dopasowane do konkretnych potrzeb (np. eksport danych, CSV/Excel/PDF, proste backendy).",
+    "about.p3":"Pracuję lokalnie w Troisdorf (Niemcy) oraz zdalnie.",
+    "about.p4":"Obsługuję klientów po polsku, niemiecku i angielsku.",
+    "about.p5":"Masz pomysł albo konkretny problem? Napisz — zobaczymy, co da się sensownie zrobić.",
     "about.f1k":"Styl pracy",
     "about.f1v":"spokojnie, konkretnie, transparentnie",
     "about.f2k":"Języki",
@@ -223,12 +241,16 @@ if (!['de','pl'].includes(currentLang)) {
 }
 
 const pill = document.getElementById('langPill');
+const hint = document.querySelector('.lang__hint');
 const toggleBtn = document.getElementById('langToggle');
 
 function applyLang(lang){
   const t = dict[lang];
   document.documentElement.lang = lang === 'de' ? 'de' : 'pl';
   pill.textContent = lang.toUpperCase();
+  if (hint) {
+    hint.textContent = lang === 'de' ? '/ PL' : '/ DE';
+  }
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');

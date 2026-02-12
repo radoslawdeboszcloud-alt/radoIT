@@ -17,6 +17,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 section{scroll-margin-top:200px}
+:lang(de) #contact{scroll-margin-top:260px}
 body{
   margin:0;
   font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
