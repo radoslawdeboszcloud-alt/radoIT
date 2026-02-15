@@ -190,6 +190,8 @@ a{color:inherit}
 .value{font-weight:700}
 .value--icon{display:inline-flex; align-items:center}
 .icon{width:34px; height:34px; display:inline-block}
+.value--icon:hover .icon{filter: brightness(1.1); transform: scale(1.06)}
+.value--icon .icon{transition: transform .15s ease, filter .15s ease}
 .muted{color: rgba(234,242,255,.7)}
 
 .contact__actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
@@ -295,4 +297,5 @@ body.modal-open{overflow:hidden}
   .about{grid-template-columns: 1fr}
   .contact{grid-template-columns: 1fr}
   .nav{display:none}
+  .icon{width:30px; height:30px}
 }
