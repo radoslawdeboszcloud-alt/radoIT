@@ -2,7 +2,7 @@
 const yearEl = document.getElementById('year');
 yearEl.textContent = new Date().getFullYear();
 
-const email = "radoslawdebosz@gmail.com";
+const email = "radoslawdeboszcloud@gmail.com";
 const copyBtn = document.getElementById('copyEmail');
 const copyHint = document.getElementById('copyHint');
 
@@ -94,6 +94,7 @@ const dict = {
     "contact.subtitle":"Kurze Nachricht reicht – ich melde mich schnell zurück.",
     "contact.mailLabel":"E-Mail",
     "contact.phoneLabel":"Telefon",
+    "contact.whatsappLabel":"WhatsApp",
     "contact.areaLabel":"Ort",
     "contact.areaValue":"Troisdorf / Rhein-Sieg-Kreis & online",
     "contact.ctaMail":"E-Mail schreiben",
@@ -198,6 +199,7 @@ const dict = {
     "contact.subtitle":"Wystarczy krótka wiadomość – szybko odpiszę.",
     "contact.mailLabel":"E-mail",
     "contact.phoneLabel":"Telefon",
+    "contact.whatsappLabel":"WhatsApp",
     "contact.areaLabel":"Miejsce",
     "contact.areaValue":"Troisdorf / okolice & online",
     "contact.ctaMail":"Napisz e‑mail",
