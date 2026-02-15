@@ -185,8 +185,11 @@ a{color:inherit}
 }
 .contact__row{display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px solid var(--line)}
 .contact__row:last-child{border-bottom:none}
+.contact__row--whatsapp{padding:6px 0}
 .label{color: rgba(234,242,255,.65)}
 .value{font-weight:700}
+.value--icon{display:inline-flex; align-items:center}
+.icon{width:34px; height:34px; display:inline-block}
 .muted{color: rgba(234,242,255,.7)}
 
 .contact__actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
